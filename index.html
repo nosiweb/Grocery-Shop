@@ -101,55 +101,54 @@
       <div class="container-fluid">
         <div class="row py-3">
           <div class="d-flex  justify-content-center justify-content-sm-between align-items-center">
-            <nav class="main-menu d-flex navbar navbar-expand-lg">
+            
 
-              <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
-                aria-controls="offcanvasNavbar">
-                <span class="navbar-toggler-icon"></span>
-              </button>
 
-              <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
 
-                
 
-                <!-- =================================================
-     NAVIGATION
-================================================== -->
+
+
+            
+          <!-- ============================================================
+     MAIN NAVIGATION
+     ============================================================ -->
 
 <div class="container-fluid">
-
   <div class="row py-3">
 
-    <div class="d-flex justify-content-center justify-content-sm-between align-items-center">
+    <div class="d-flex justify-content-center justify-content-sm-between align-items-center w-100">
 
       <nav class="main-menu d-flex navbar navbar-expand-lg">
 
         <!-- MOBILE MENU BUTTON -->
-
         <button
           class="navbar-toggler"
           type="button"
           data-bs-toggle="offcanvas"
           data-bs-target="#offcanvasNavbar"
-          aria-controls="offcanvasNavbar">
+          aria-controls="offcanvasNavbar"
+          aria-label="Open navigation menu">
 
           <span class="navbar-toggler-icon"></span>
 
         </button>
 
 
-        <!-- NAVIGATION MENU -->
-
+        <!-- NAVIGATION OFFCANVAS -->
         <div
           class="offcanvas offcanvas-end"
           tabindex="-1"
           id="offcanvasNavbar"
           aria-labelledby="offcanvasNavbarLabel">
 
+          <!-- MOBILE HEADER -->
+          <div class="offcanvas-header">
 
-          <!-- MOBILE CLOSE BUTTON -->
-
-          <div class="offcanvas-header justify-content-center">
+            <h5
+              class="offcanvas-title"
+              id="offcanvasNavbarLabel">
+              Menu
+            </h5>
 
             <button
               type="button"
@@ -161,12 +160,13 @@
           </div>
 
 
+          <!-- MENU CONTENT -->
           <div class="offcanvas-body">
 
 
-            <!-- DEPARTMENT -->
-
-            <select class="filter-categories border-0 mb-0 me-5">
+            <!-- SHOP DEPARTMENTS -->
+            <select
+              class="filter-categories border-0 mb-3 mb-lg-0 me-lg-5">
 
               <option>Shop by Departments</option>
               <option>Groceries</option>
@@ -177,12 +177,11 @@
 
 
             <!-- MAIN MENU -->
-
-            <ul class="navbar-nav justify-content-end menu-list list-unstyled d-flex gap-md-3 mb-0">
+            <ul
+              class="navbar-nav justify-content-end menu-list list-unstyled d-flex gap-md-3 mb-0">
 
 
               <!-- HOME -->
-
               <li class="nav-item">
 
                 <a
@@ -196,8 +195,7 @@
               </li>
 
 
-              <!-- PRODUCTS -->
-
+              <!-- PRODUCT -->
               <li class="nav-item">
 
                 <a
@@ -212,7 +210,6 @@
 
 
               <!-- POPULAR CATEGORY -->
-
               <li class="nav-item">
 
                 <a
@@ -227,14 +224,12 @@
 
 
               <!-- ORDER -->
-
               <li class="nav-item">
 
                 <a
                   href="#"
                   class="nav-link"
-                  data-bs-toggle="modal"
-                  data-bs-target="#orderModal">
+                  onclick="openOrderPopup(); return false;">
 
                   Order
 
@@ -244,11 +239,10 @@
 
 
               <!-- POLICY -->
-
               <li class="nav-item">
 
                 <a
-                  href="index.html#legal-information"
+                  href="policy.html"
                   class="nav-link">
 
                   Policy
@@ -259,11 +253,10 @@
 
 
               <!-- CONTACT -->
-
               <li class="nav-item">
 
                 <a
-                  href="index.html#contact"
+                  href="contact.html"
                   class="nav-link">
 
                   Contact
@@ -280,6 +273,256 @@
         </div>
 
       </nav>
+
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ============================================================
+     ORDER POPUP
+     ============================================================ -->
+
+<div
+  class="modal fade"
+  id="orderModal"
+  tabindex="-1"
+  aria-labelledby="orderModalLabel"
+  aria-hidden="true">
+
+  <div class="modal-dialog modal-dialog-centered">
+
+    <div class="modal-content rounded-4 border-0 shadow">
+
+      <div class="modal-header">
+
+        <h5
+          class="modal-title fw-bold"
+          id="orderModalLabel">
+
+          Place an Order
+
+        </h5>
+
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close">
+        </button>
+
+      </div>
+
+
+      <div class="modal-body">
+
+        <p class="text-muted small mb-4">
+          Enter the product you want and your contact details.
+          We will prepare your order request.
+        </p>
+
+
+        <form id="orderForm">
+
+          <!-- PRODUCT -->
+          <div class="mb-3">
+
+            <label
+              for="orderProduct"
+              class="form-label fw-semibold">
+
+              Product Name
+
+            </label>
+
+            <input
+              type="text"
+              id="orderProduct"
+              class="form-control"
+              placeholder="Enter product name"
+              required>
+
+          </div>
+
+
+          <!-- CUSTOMER NAME -->
+          <div class="mb-3">
+
+            <label
+              for="customerName"
+              class="form-label fw-semibold">
+
+              Your Name
+
+            </label>
+
+            <input
+              type="text"
+              id="customerName"
+              class="form-control"
+              placeholder="Enter your name"
+              required>
+
+          </div>
+
+
+          <!-- MOBILE NUMBER -->
+          <div class="mb-3">
+
+            <label
+              for="customerMobile"
+              class="form-label fw-semibold">
+
+              Mobile Number
+
+            </label>
+
+            <input
+              type="tel"
+              id="customerMobile"
+              class="form-control"
+              placeholder="Enter your mobile number"
+              inputmode="tel"
+              required>
+
+          </div>
+
+
+          <!-- SUBMIT -->
+          <button
+            type="submit"
+            class="btn btn-primary w-100 rounded-3 py-2">
+
+            Send Order Request
+
+          </button>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- ============================================================
+     ORDER POPUP SCRIPT
+     ============================================================ -->
+
+<script>
+
+function openOrderPopup() {
+
+  /*
+   * Close the mobile navigation first.
+   */
+  const menu = document.getElementById("offcanvasNavbar");
+
+  if (menu) {
+
+    const offcanvas =
+      bootstrap.Offcanvas.getInstance(menu);
+
+    if (offcanvas) {
+      offcanvas.hide();
+    }
+
+  }
+
+
+  /*
+   * Open order popup.
+   */
+  const modalElement =
+    document.getElementById("orderModal");
+
+  const orderModal =
+    new bootstrap.Modal(modalElement);
+
+  orderModal.show();
+
+}
+
+
+/*
+ * Send order through the user's email application.
+ */
+document
+  .getElementById("orderForm")
+  .addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+
+    const product =
+      document
+        .getElementById("orderProduct")
+        .value
+        .trim();
+
+
+    const name =
+      document
+        .getElementById("customerName")
+        .value
+        .trim();
+
+
+    const mobile =
+      document
+        .getElementById("customerMobile")
+        .value
+        .trim();
+
+
+    /*
+     * CHANGE THIS EMAIL ADDRESS
+     * to the shop's actual email.
+     */
+    const shopEmail = "nosibul6294@example.com";
+
+
+    const subject =
+      "Order Request";
+
+
+    const body =
+`Hello,
+
+I would like to place an order.
+
+Product:
+${product}
+
+Customer Name:
+${name}
+
+Mobile Number:
+${mobile}
+
+Please let me know about the availability and collection details.
+
+Thank you.`;
+
+
+    const mailto =
+      "mailto:" +
+      shopEmail +
+      "?subject=" +
+      encodeURIComponent(subject) +
+      "&body=" +
+      encodeURIComponent(body);
+
+
+    window.location.href = mailto;
+
+  });
+
+</script>
 
     </div>
 
